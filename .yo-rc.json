@@ -1,0 +1,11 @@
+{
+  "generator-reveal": {
+    "presentationTitle": "Security",
+    "packageVersion": "1.0.0",
+    "revealTheme": "sky",
+    "useSass": false,
+    "deployToGithubPages": true,
+    "githubUsername": "MaciekTalaska",
+    "githubRepository": "OnSecurity"
+  }
+}

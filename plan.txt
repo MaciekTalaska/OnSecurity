@@ -1,0 +1,75 @@
+
+[ Part I: securing your operating system ]
+
+Start: how important security of the applications is
+* the case of Firefox and 39.02 (and the 39.03 patch) that due to the unsecurity of the pdf.js allow attacker to _copy_ /etc/passwords (mind that passwords are NOT stored in that file!)
+
+The big gun: QubesOS
+* micro VMs run for almost each application, so effectively sandboxing each app (including browser).
+* how about performence? what is the additional overhead? how about memory consumption?
+
+Virtualizing apps using Docker:
+* using Docker for running (not only) server type of apps, but also for... Firefox
+* As Linux is based on LXC... what is the LXC all about?
+  https://linuxcontainers.org/
+* OpenVZ is an alternative: 
+  https://openvz.org/Main_Page
+* FreeBSD Jails: 
+  https://en.wikipedia.org/wiki/FreeBSD_jail
+
+Standard approach to control application behavior under Linux:
+http://www.dobreprogramy.pl/iacobus/AppArmor-jak-dozbroic-Linuksa,65399.html
+* SELinux
+* AppArmor
+* FireJail: 
+    https://l3net.wordpress.com/projects/firejail/
+    http://www.reddit.com/r/linux/comments/2hvo3l/firejail_a_security_sandbox_for_mozilla_firefox/
+
+[ Part II: passwords! ]
+
+1. Discuss the article from ars-technica that reveals some important things related to passwords. 
+* discuss how easy right now it is to break thousands of passwords in seconds/minutes using modern GPUs and algorithms
+* the take-away is: your password is probably NOT that secure as you think it is!
+* MS research: there is no point to have only the strong passwords, some (for not important services) could be weak... (but hey... really?)
+* discuss how passwords are usually created by users (capitalizing beginning of the passwords, a->4, e->3, o->0... etc.) all those 'techniques' are no longer enough
+
+2. Discuss the way that the secure password could be generated.
+* discuss the algorithm
+* show the angularjs application that could be used for that
+
+[ Part III: SSL ]
+
+Recent attacks on SSL:
+
+0. Short introduction to how OpenSSL works
+* OpenSSL connection negotioation
+* TLS
+
+1. Heart-beat
+* describe the mechanism
+* how easy it was to use it
+
+2. Poodle:
+* describe the mechanism
+* how easy it was to use it (real threat)
+
+3. How it all affected OpenSSL? 
+* big players (IBM, Microsoft, Apple, Google & many others) realized that they base their security based on OpenSSL. Money has been granted to people who are in charge of development of OpenSSL
+* FreeBSD community started their own version of OpenSSL. In the short time, they have removed a lot of no longer used code
+
+Is OpenSSL insecure? No!
+
+4. What is CA?
+* what is CA resposible for?
+* do we need CA for our own applications? When?
+* and what are the cases CA is not needed?
+
+5. Generating certificates on our own
+* using set of Linuks tools to generated OpenSSL certificates on your - specifying certificate lenght etc.
+* how to deal with certificates not being signed by well known CAs
+* using mutual SSL authentication
+  * why would we need that approach?
+  * 
+* how to secure root certificate? how important it is to secure it?
+
+DEMO - generating the certificates on our own machine
